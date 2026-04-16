@@ -104,7 +104,7 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-
 .prog-dot{height:5px;border-radius:3px;background:var(--border);flex:1;}
 .prog-dot.done{background:var(--raro);}
 .prog-dot.current{background:var(--accent);}
-.ex-subtitle{font-size:.72rem;color:var(--text2);margin-bottom:.9rem;font-style:italic;}
+.ex-subtitle{font-size:.75rem;color:var(--text2);margin-bottom:.9rem;font-style:italic;background:var(--bg3);border-radius:9px;padding:.5rem .8rem;border-left:2px solid var(--accent);line-height:1.5;}
 .ex-sentence{font-size:1rem;font-weight:600;line-height:1.7;margin-bottom:1.1rem;background:var(--bg2);padding:.9rem 1.1rem;border-radius:11px;border-left:3px solid var(--accent);}
 
 .props-container{margin-bottom:1.1rem;display:flex;flex-direction:column;gap:8px;}
@@ -290,6 +290,14 @@ function hasMaestria(sezId){
   return getProgress(sezId,lastLiv).star;
 }
 function getMaestriaList(){return SEZIONI.filter(s=>hasMaestria(s.id)).map(s=>s.maestria);}
+function isSezioneSbloccata(idx){
+  if(idx===0)return true;
+  const sezPrec=SEZIONI[idx-1];
+  if(!sezPrec.file||!corpora[sezPrec.id])return false;
+  const livelli=corpora[sezPrec.id].livelli;
+  const lastLiv=livelli[livelli.length-1].livello;
+  return getProgress(sezPrec.id,lastLiv).star;
+}
 
 async function loadCorpus(sez){
   if(corpora[sez.id])return true;
@@ -298,14 +306,22 @@ async function loadCorpus(sez){
   catch(e){return false;}
 }
 
-window.addEventListener('DOMContentLoaded',()=>{
+window.addEventListener('DOMContentLoaded',async()=>{
   buildBrawlerGrid();
+  await preloadCorpora();
   const saved=lsGet('brawler');
   if(saved){
     brawler=BRAWLERS.find(b=>b.id===saved)||null;
     if(brawler){updateAvatarUI();show('screen-home');buildModesGrid();buildTitles();}
   }
 });
+async function preloadCorpora(){
+  for(const sez of SEZIONI){
+    if(sez.file&&!corpora[sez.id]){
+      try{const r=await fetch(sez.file);if(r.ok)corpora[sez.id]=await r.json();}catch(e){}
+    }
+  }
+}
 
 function buildBrawlerGrid(){
   const grid=document.getElementById('brawlers-grid');
@@ -369,19 +385,23 @@ function goLevels(){buildLevelsScreen();show('screen-levels');}
 function buildModesGrid(){
   const grid=document.getElementById('modes-grid');
   grid.innerHTML='';
-  SEZIONI.forEach(sez=>{
+  SEZIONI.forEach((sez,idx)=>{
+    const haFile=!!sez.file;
+    const sbloccata=haFile&&isSezioneSbloccata(idx);
+    const locked=!sbloccata;
     const card=document.createElement('div');
-    card.className='mode-card'+((!sez.attiva)?' locked':'');
+    card.className='mode-card'+(locked?' locked':'');
     card.style.setProperty('--mc',sez.colore);
     const livPills=sez.file&&corpora[sez.id]?buildLevelPills(sez):'<span class="lvl-pill lvl-lock">Prossimamente</span>';
+    const lockMsg=!haFile?'<div class="lock-icon">🔒</div>':locked?'<div class="lock-icon">🔒</div>':'<div class="mode-badge">Attivo</div>';
     card.innerHTML=`
-      ${sez.attiva?`<div class="mode-badge">Attivo</div>`:`<div class="lock-icon">🔒</div>`}
+      ${lockMsg}
       <div class="mode-icon">${sez.icon}</div>
       <div class="mode-name">${sez.nome}</div>
       <div class="mode-sub">${sez.sub}</div>
       <div class="levels-row">${livPills}</div>
     `;
-    if(sez.attiva)card.onclick=()=>openSezione(sez);
+    if(!locked)card.onclick=()=>openSezione(sez);
     grid.appendChild(card);
   });
 }
@@ -426,7 +446,7 @@ function buildLevelsScreen(){
     const row=document.createElement('div');
     row.className='level-row'+(locked?' locked':'')+(prog.done?' done':'');
     row.style.setProperty('--lc',lc);
-    const desc=(l.descrizione||'').substring(0,65)+'…';
+    const desc=l.descrizione||'';
     row.innerHTML=`
       <div class="level-row-left">
         <div class="level-dot"></div>
@@ -453,8 +473,15 @@ function startLevel(livello){
   document.getElementById('ex-mode-label').textContent=currentSezione.icon+' '+currentSezione.nome;
   // sottotitolo per sezione 2
   const sub=document.getElementById('ex-subtitle');
-  if(currentSezione.meccanica==='props'){sub.textContent='👆 Tocca la proposizione principale';sub.style.display='block';}
-  else{sub.style.display='none';}
+  if(currentSezione.meccanica==='props'){
+    sub.textContent='👆 '+currentLivello.descrizione;
+    sub.style.display='block';
+  } else if(currentLivello.descrizione){
+    sub.textContent=currentLivello.descrizione;
+    sub.style.display='block';
+  } else {
+    sub.style.display='none';
+  }
   show('screen-exercise');
   startBattery();
 }
