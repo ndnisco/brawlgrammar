@@ -149,6 +149,7 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-
 .home-btn-score:hover{border-color:var(--accent);color:var(--accent);}
 
 .footer{text-align:center;font-size:.58rem;color:var(--text2);opacity:.4;padding:1.5rem 1rem 1rem;border-top:1px solid var(--border);margin-top:.5rem;}
+@media(max-width:480px){.main{padding:1rem .8rem;}.brawlers-grid{grid-template-columns:repeat(2,1fr);}.modes-grid{grid-template-columns:1fr;}.mode-card{padding:.8rem .9rem;}.answer-btns{grid-template-columns:1fr;}.score-btns{flex-direction:column;align-items:center;}.score-btns button{width:100%;max-width:280px;}.ex-sentence{font-size:.92rem;}.prop-btn{font-size:.85rem;}.multi-btn{font-size:.82rem;}.logo{font-size:1.2rem;}.level-select-title{font-size:1rem;}.brawler-em{font-size:1.7rem;}.choose-intro h1{font-size:1.4rem;}.levels-row{flex-wrap:wrap;}}
 </style>
 </head>
 <body>
@@ -247,12 +248,14 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-
 
 <script>
 const SEZIONI = [
-  { id:1, nome:'Ricercati',    icon:'🎯', colore:'#00d4ff', sub:'Frase semplice o complessa?',       file:'data/sezione1_ricercati.json',    attiva:true,  meccanica:'binaria',  maestria:'Minaccia invisibile' },
-  { id:2, nome:'Arraffagemme',icon:'💎', colore:'#f97316', sub:'Trova la proposizione principale',   file:'data/sezione2_arraffagemme.json', attiva:true,  meccanica:'props',    maestria:'Senza parole' },
-  { id:3, nome:'Footbrawl',   icon:'⚽', colore:'#4ade80', sub:'Coordinate: tipi e connettivi',      file:'data/sezione3_footbrawl.json',    attiva:true,  meccanica:'multipla', maestria:'Il primo' },
-  { id:4, nome:'Dominio',     icon:'🏰', colore:'#a855f7', sub:'Subordinate: tipi e connettivi',     file:null,                              attiva:false, meccanica:'multipla', maestria:'Creatura della notte' },
-  { id:5, nome:'Sopravvivenza',icon:'💀',colore:'#ef4444', sub:'Analisi completa del periodo',        file:null,                              attiva:false, meccanica:'etichetta',maestria:'Capobanda' },
-  { id:6, nome:'Map Maker',   icon:'🗺️', colore:'#fbbf24', sub:'Costruisci il periodo',              file:null,                              attiva:false, meccanica:'multipla', maestria:'Migliore amico' },
+  { id:1, nome:'Ricercati',       icon:'🎯', colore:'#00d4ff', sub:'Frase semplice o complessa?',                              file:'data/sezione1_ricercati.json',       attiva:true,  meccanica:'binaria',  maestria:'Minaccia invisibile' },
+  { id:2, nome:'Arraffagemme',    icon:'💎', colore:'#f97316', sub:'Trova la proposizione principale',                          file:'data/sezione2_arraffagemme.json',    attiva:true,  meccanica:'props',    maestria:'Senza parole' },
+  { id:3, nome:'Footbrawl',       icon:'⚽', colore:'#4ade80', sub:'Coordinate: tipi e connettivi',                             file:'data/sezione3_footbrawl.json',       attiva:true,  meccanica:'multipla', maestria:'Il primo' },
+  { id:4, nome:'Rapina',          icon:'🏦', colore:'#a855f7', sub:'Completive e relative',                                     file:'data/sezione4_rapina.json',          attiva:true,  meccanica:'multipla', maestria:'Capobanda' },
+  { id:5, nome:'Caccia alle stelle',icon:'⭐',colore:'#fbbf24', sub:'Circostanziali: causale, temporale, finale',               file:'data/sezione5_cacciastelle.json',    attiva:true,  meccanica:'multipla', maestria:'Creatura della notte' },
+  { id:6, nome:'Pezzo grosso',    icon:'💪', colore:'#ef4444', sub:'Circostanziali: consecutiva, concessiva, condizionale',     file:null,                                 attiva:false, meccanica:'multipla', maestria:'L\'ombroso' },
+  { id:7, nome:'Sopravvivenza',   icon:'💀', colore:'#38bdf8', sub:'Analisi completa del periodo',                              file:null,                                 attiva:false, meccanica:'etichetta',maestria:'Migliore amico' },
+  { id:8, nome:'Map Maker',       icon:'🗺️', colore:'#c084fc', sub:'Costruisci il periodo',                                    file:null,                                 attiva:false, meccanica:'multipla', maestria:'Senza paura' },
 ];
 
 const BRAWLERS = [

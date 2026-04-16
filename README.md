@@ -35,10 +35,10 @@
 ## Come aggiornare (aggiungere sezioni)
 1. Vai sul repository → cartella `data/`
 2. **Add file → Create new file**
-3. Scrivi nome file (es. `sezione4_dominio.json`) e incolla il contenuto
+3. Scrivi nome file (es. `sezione6_pezzogrosso.json`) e incolla il contenuto
 4. **Commit changes** — il sito si aggiorna in pochi secondi
 
-> ⚠️ I progressi degli studenti **non vengono cancellati** quando aggiorni i file.
+> I progressi degli studenti non vengono cancellati quando aggiorni i file.
 
 ---
 
@@ -49,27 +49,31 @@ brawlgrammar/
 ├── index.html
 ├── README.md
 └── data/
-    ├── sezione1_ricercati.json         ← ✅ pronto
-    ├── sezione2_arraffagemme.json      ← ✅ pronto
-    ├── sezione3_footbrawl.json         ← ✅ pronto
-    ├── sezione4_dominio.json           ← 🔜 in preparazione
-    ├── sezione5_sopravvivenza.json     ← 🔜 in preparazione
-    └── sezione6_mapmaker.json          ← 🔜 in preparazione
+    ├── sezione1_ricercati.json           ← pronto
+    ├── sezione2_arraffagemme.json        ← pronto
+    ├── sezione3_footbrawl.json           ← pronto
+    ├── sezione4_rapina.json              ← pronto
+    ├── sezione5_cacciastelle.json        ← pronto
+    ├── sezione6_pezzogrosso.json         ← in preparazione
+    ├── sezione7_sopravvivenza.json       ← in preparazione
+    └── sezione8_mapmaker.json            ← in preparazione
 ```
 
 ---
 
 ## Sezioni
 
-| # | Nome | Sottotitolo | Stato |
-|---|------|-------------|-------|
-| 1 | Ricercati | Frase semplice o complessa? | ✅ Attiva |
-| 2 | Arraffagemme | Trova la proposizione principale | ✅ Attiva |
-| 3 | Footbrawl | Coordinate: tipi e connettivi | ✅ Attiva |
-| 4 | Dominio | Subordinate: tipi e connettivi | 🔒 Presto |
-| 5 | Sopravvivenza | Analisi completa del periodo | 🔒 Presto |
-| 6 | Map Maker | Costruisci il periodo | 🔒 Presto |
+| # | Nome | Sottotitolo | Livelli | Stato |
+|---|------|-------------|---------|-------|
+| 1 | Ricercati | Frase semplice o complessa? | 3 | Attiva |
+| 2 | Arraffagemme | Trova la proposizione principale | 3 | Attiva |
+| 3 | Footbrawl | Coordinate: tipi e connettivi | 3 | Attiva |
+| 4 | Rapina | Completive e relative | 4 | Attiva |
+| 5 | Caccia alle stelle | Circostanziali: causale, temporale, finale | 4 | Attiva |
+| 6 | Pezzo grosso | Circostanziali: consecutiva, concessiva, condizionale | 4 | Presto |
+| 7 | Sopravvivenza | Analisi completa del periodo | 4 | Presto |
+| 8 | Map Maker | Costruisci il periodo | 3 | Presto |
 
 ---
 
-*Questo sito non è affiliato a Supercell. Brawl Stars è un marchio registrato di Supercell. Uso educativo non commerciale.*
+Questo sito non e' affiliato a Supercell. Brawl Stars e' un marchio registrato di Supercell. Uso educativo non commerciale.
