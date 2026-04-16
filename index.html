@@ -7,144 +7,148 @@
 <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --raro: #4ade80; --epico: #a855f7; --leggendario: #fbbf24; --superraro: #38bdf8;
-  --bg: #0f1923; --bg2: #1a2535; --bg3: #243044;
-  --card: #1e2d40; --border: #2e4060; --text: #e8f0fe; --text2: #8ba3c0;
-  --accent: #00d4ff; --red: #ef4444; --blue: #3b82f6;
+  --raro:#4ade80;--epico:#a855f7;--leggendario:#fbbf24;--superraro:#38bdf8;
+  --bg:#0f1923;--bg2:#1a2535;--bg3:#243044;
+  --card:#1e2d40;--border:#2e4060;--text:#e8f0fe;--text2:#8ba3c0;
+  --accent:#00d4ff;--red:#ef4444;--blue:#3b82f6;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Nunito', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
 
 /* HEADER */
-.header {
-  background: linear-gradient(135deg, #0a1628, #1a2535, #0d1f35);
-  border-bottom: 2px solid var(--accent);
-  padding: 0.9rem 1.4rem;
-  display: flex; align-items: center; justify-content: space-between;
-  position: sticky; top: 0; z-index: 100;
-}
-.logo { font-family: 'Lilita One', cursive; font-size: 1.5rem; color: var(--accent); text-shadow: 0 0 20px rgba(0,212,255,0.4); }
-.logo span { color: var(--leggendario); }
-.tagline { font-size: 0.62rem; color: var(--text2); letter-spacing: 2px; text-transform: uppercase; margin-top: 1px; }
-.avatar-chip { display: flex; align-items: center; gap: 6px; background: var(--bg3); border: 1px solid var(--border); border-radius: 20px; padding: 4px 10px 4px 6px; cursor: pointer; transition: border-color .15s; }
-.avatar-chip:hover { border-color: var(--accent); }
-.avatar-em { font-size: 18px; line-height: 1; }
-.avatar-name { font-size: 0.7rem; font-weight: 700; color: var(--text2); }
+.header{background:linear-gradient(135deg,#0a1628,#1a2535,#0d1f35);border-bottom:2px solid var(--accent);padding:.9rem 1.4rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.logo{font-family:'Lilita One',cursive;font-size:1.5rem;color:var(--accent);text-shadow:0 0 20px rgba(0,212,255,.4);}
+.logo span{color:var(--leggendario);}
+.tagline{font-size:.62rem;color:var(--text2);letter-spacing:2px;text-transform:uppercase;margin-top:1px;}
+.header-right{display:flex;align-items:center;gap:8px;}
+.avatar-chip{display:flex;align-items:center;gap:6px;background:var(--bg3);border:1px solid var(--border);border-radius:20px;padding:4px 10px 4px 6px;cursor:pointer;transition:border-color .15s;}
+.avatar-chip:hover{border-color:var(--accent);}
+.avatar-em{font-size:18px;line-height:1;}
+.avatar-name{font-size:.7rem;font-weight:700;color:var(--text2);}
+.home-icon-btn{background:none;border:1px solid var(--border);color:var(--text2);border-radius:8px;padding:5px 10px;font-size:.8rem;cursor:pointer;transition:all .15s;}
+.home-icon-btn:hover{border-color:var(--accent);color:var(--accent);}
 
-.main { padding: 1.3rem; max-width: 680px; margin: 0 auto; }
-.screen { display: none; }
-.screen.active { display: block; }
-.section-title { font-family: 'Lilita One', cursive; font-size: 0.9rem; color: var(--text2); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 0.9rem; margin-top: 1.2rem; }
+.main{padding:1.3rem;max-width:680px;margin:0 auto;}
+.screen{display:none;}
+.screen.active{display:block;}
+.section-title{font-family:'Lilita One',cursive;font-size:.9rem;color:var(--text2);letter-spacing:3px;text-transform:uppercase;margin-bottom:.9rem;margin-top:1.2rem;}
 
 /* CHOOSE BRAWLER */
-.choose-intro { text-align: center; padding: 1.5rem 0 1rem; }
-.choose-intro h1 { font-family: 'Lilita One', cursive; font-size: 1.7rem; color: var(--accent); margin-bottom: 0.3rem; }
-.choose-intro p { font-size: 0.82rem; color: var(--text2); }
-.brawlers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 1.1rem 0; }
-.brawler-card { background: var(--card); border: 2px solid var(--border); border-radius: 14px; padding: 1rem 0.7rem; text-align: center; cursor: pointer; transition: all .18s; }
-.brawler-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
-.brawler-card.selected { border-color: var(--leggendario); background: rgba(251,191,36,0.07); }
-.brawler-em { font-size: 2rem; margin-bottom: 5px; }
-.brawler-name { font-family: 'Lilita One', cursive; font-size: 0.9rem; color: var(--text); margin-bottom: 2px; }
-.brawler-title { font-size: 0.62rem; color: var(--text2); font-style: italic; }
-.confirm-btn { width: 100%; background: var(--accent); color: #0a1628; border: none; border-radius: 12px; padding: 0.8rem; font-family: 'Lilita One', cursive; font-size: 1rem; cursor: pointer; transition: all .2s; opacity: 0.35; pointer-events: none; }
-.confirm-btn.ready { opacity: 1; pointer-events: all; }
-.confirm-btn.ready:hover { transform: scale(1.02); box-shadow: 0 0 20px rgba(0,212,255,0.3); }
+.choose-intro{text-align:center;padding:1.5rem 0 1rem;}
+.choose-intro h1{font-family:'Lilita One',cursive;font-size:1.7rem;color:var(--accent);margin-bottom:.3rem;}
+.choose-intro p{font-size:.82rem;color:var(--text2);}
+.brawlers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:1.1rem 0;}
+.brawler-card{background:var(--card);border:2px solid var(--border);border-radius:14px;padding:1rem .7rem;text-align:center;cursor:pointer;transition:all .18s;}
+.brawler-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.3);}
+.brawler-card.selected{border-color:var(--leggendario);background:rgba(251,191,36,.07);}
+.brawler-em{font-size:2rem;margin-bottom:5px;}
+.brawler-name{font-family:'Lilita One',cursive;font-size:.9rem;color:var(--text);margin-bottom:2px;}
+.brawler-title{font-size:.62rem;color:var(--text2);font-style:italic;}
+.confirm-btn{width:100%;background:var(--accent);color:#0a1628;border:none;border-radius:12px;padding:.8rem;font-family:'Lilita One',cursive;font-size:1rem;cursor:pointer;transition:all .2s;opacity:.35;pointer-events:none;}
+.confirm-btn.ready{opacity:1;pointer-events:all;}
+.confirm-btn.ready:hover{transform:scale(1.02);box-shadow:0 0 20px rgba(0,212,255,.3);}
 
 /* HOME */
-.player-banner { background: linear-gradient(135deg, rgba(0,212,255,0.07), rgba(0,212,255,0.02)); border: 1.5px solid rgba(0,212,255,0.2); border-radius: 16px; padding: 1rem 1.2rem; display: flex; align-items: center; gap: 14px; margin-bottom: 1.2rem; }
-.player-avatar { font-size: 2.6rem; }
-.player-info-name { font-family: 'Lilita One', cursive; font-size: 1.05rem; color: var(--accent); }
-.player-info-sub { font-size: 0.68rem; color: var(--text2); margin-top: 1px; cursor: pointer; text-decoration: underline; }
-.titles-row { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 6px; }
-.title-badge { font-size: 0.6rem; font-weight: 700; padding: 2px 8px; border-radius: 20px; background: rgba(251,191,36,0.15); color: var(--leggendario); }
+.player-banner{background:linear-gradient(135deg,rgba(0,212,255,.07),rgba(0,212,255,.02));border:1.5px solid rgba(0,212,255,.2);border-radius:16px;padding:1rem 1.2rem;display:flex;align-items:center;gap:14px;margin-bottom:1.2rem;}
+.player-avatar{font-size:2.6rem;}
+.player-info-name{font-family:'Lilita One',cursive;font-size:1.05rem;color:var(--accent);}
+.player-info-sub{font-size:.68rem;color:var(--text2);margin-top:1px;cursor:pointer;text-decoration:underline;}
+.titles-row{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px;}
+.title-badge{font-size:.6rem;font-weight:700;padding:2px 8px;border-radius:20px;background:rgba(251,191,36,.15);color:var(--leggendario);}
 
-.modes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 1.5rem; }
-.mode-card { background: var(--card); border: 1.5px solid var(--border); border-radius: 14px; padding: 0.9rem 1rem; cursor: pointer; transition: all .18s; position: relative; overflow: hidden; }
-.mode-card::before { content:''; position:absolute; top:0;left:0;right:0; height:3px; background:var(--mc,var(--accent)); border-radius:14px 14px 0 0; }
-.mode-card:hover:not(.locked) { border-color:var(--mc,var(--accent)); transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,0.3); }
-.mode-card.locked { opacity:.38; cursor:not-allowed; }
-.mode-icon { font-size:1.5rem; margin-bottom:4px; }
-.mode-name { font-family:'Lilita One',cursive; font-size:0.9rem; color:var(--text); margin-bottom:1px; }
-.mode-sub { font-size:0.62rem; color:var(--text2); line-height:1.3; }
-.mode-badge { position:absolute; top:8px;right:8px; font-size:0.56rem; font-weight:800; letter-spacing:1px; text-transform:uppercase; padding:2px 7px; border-radius:20px; background:var(--mc,var(--accent)); color:#0a1628; }
-.lock-icon { position:absolute; top:8px;right:8px; font-size:12px; color:var(--text2); }
-.levels-row { display:flex; gap:4px; margin-top:7px; flex-wrap:wrap; }
-.lvl-pill { font-size:0.56rem; font-weight:700; padding:2px 6px; border-radius:20px; }
-.lvl-raro { background:rgba(74,222,128,0.15); color:var(--raro); }
-.lvl-epico { background:rgba(168,85,247,0.15); color:var(--epico); }
-.lvl-leggendario { background:rgba(251,191,36,0.15); color:var(--leggendario); }
-.lvl-superraro { background:rgba(56,189,248,0.15); color:var(--superraro); }
-.lvl-lock { background:rgba(255,255,255,0.05); color:var(--text2); }
-.lvl-done { background:rgba(74,222,128,0.25); color:var(--raro); }
+.modes-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1.5rem;}
+.mode-card{background:var(--card);border:1.5px solid var(--border);border-radius:14px;padding:.9rem 1rem;cursor:pointer;transition:all .18s;position:relative;overflow:hidden;}
+.mode-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--mc,var(--accent));border-radius:14px 14px 0 0;}
+.mode-card:hover:not(.locked){border-color:var(--mc,var(--accent));transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.3);}
+.mode-card.locked{opacity:.38;cursor:not-allowed;}
+.mode-icon{font-size:1.5rem;margin-bottom:4px;}
+.mode-name{font-family:'Lilita One',cursive;font-size:.9rem;color:var(--text);margin-bottom:1px;}
+.mode-sub{font-size:.62rem;color:var(--text2);line-height:1.3;}
+.mode-badge{position:absolute;top:8px;right:8px;font-size:.56rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:2px 7px;border-radius:20px;background:var(--mc,var(--accent));color:#0a1628;}
+.lock-icon{position:absolute;top:8px;right:8px;font-size:12px;color:var(--text2);}
+.levels-row{display:flex;gap:4px;margin-top:7px;flex-wrap:wrap;}
+.lvl-pill{font-size:.56rem;font-weight:700;padding:2px 6px;border-radius:20px;}
+.lvl-Raro{background:rgba(74,222,128,.15);color:var(--raro);}
+.lvl-Epico{background:rgba(168,85,247,.15);color:var(--epico);}
+.lvl-Leggendario{background:rgba(251,191,36,.15);color:var(--leggendario);}
+.lvl-SuperRaro{background:rgba(56,189,248,.15);color:var(--superraro);}
+.lvl-lock{background:rgba(255,255,255,.05);color:var(--text2);}
+.lvl-done{background:rgba(74,222,128,.25);color:var(--raro);}
 
 /* LEVEL SELECT */
-.back-btn { background:none; border:1px solid var(--border); color:var(--text2); border-radius:8px; padding:5px 13px; font-family:'Nunito',sans-serif; font-size:0.76rem; cursor:pointer; margin-bottom:1rem; transition:all .15s; }
-.back-btn:hover { border-color:var(--accent); color:var(--accent); }
-.level-select-title { font-family:'Lilita One',cursive; font-size:1.2rem; color:var(--text); margin-bottom:0.3rem; }
-.level-select-sub { font-size:0.75rem; color:var(--text2); margin-bottom:1.2rem; }
-.levels-list { display:flex; flex-direction:column; gap:10px; margin-bottom:1.5rem; }
-.level-row { background:var(--card); border:1.5px solid var(--border); border-radius:12px; padding:0.9rem 1.1rem; display:flex; align-items:center; justify-content:space-between; cursor:pointer; transition:all .15s; }
-.level-row:hover:not(.locked) { border-color:var(--lc); }
-.level-row.locked { opacity:.4; cursor:not-allowed; }
-.level-row-left { display:flex; align-items:center; gap:10px; }
-.level-dot { width:10px; height:10px; border-radius:50%; background:var(--lc); }
-.level-row-name { font-family:'Lilita One',cursive; font-size:0.95rem; }
-.level-row-desc { font-size:0.68rem; color:var(--text2); margin-top:1px; }
-.level-row-right { font-size:0.72rem; color:var(--text2); }
-.level-row.done .level-row-right { color:var(--raro); }
+.back-btn{background:none;border:1px solid var(--border);color:var(--text2);border-radius:8px;padding:5px 13px;font-family:'Nunito',sans-serif;font-size:.76rem;cursor:pointer;margin-bottom:1rem;transition:all .15s;}
+.back-btn:hover{border-color:var(--accent);color:var(--accent);}
+.level-select-title{font-family:'Lilita One',cursive;font-size:1.2rem;color:var(--text);margin-bottom:.3rem;}
+.level-select-sub{font-size:.75rem;color:var(--text2);margin-bottom:1.2rem;}
+.levels-list{display:flex;flex-direction:column;gap:10px;margin-bottom:1.5rem;}
+.level-row{background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:.9rem 1.1rem;display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:all .15s;}
+.level-row:hover:not(.locked){border-color:var(--lc);}
+.level-row.locked{opacity:.4;cursor:not-allowed;}
+.level-row-left{display:flex;align-items:center;gap:10px;}
+.level-dot{width:10px;height:10px;border-radius:50%;background:var(--lc);}
+.level-row-name{font-family:'Lilita One',cursive;font-size:.95rem;}
+.level-row-desc{font-size:.68rem;color:var(--text2);margin-top:1px;}
+.level-row-right{font-size:.72rem;color:var(--text2);}
+.level-row.done .level-row-right{color:var(--raro);}
 
 /* EXERCISE */
-.exercise-box { background:var(--card); border:1.5px solid var(--border); border-radius:18px; padding:1.2rem; margin-bottom:1.2rem; }
-.ex-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:0.9rem; }
-.ex-mode { font-family:'Lilita One',cursive; font-size:0.85rem; color:var(--accent); }
-.ex-right { display:flex; align-items:center; gap:8px; }
-.ex-avatar { font-size:1.4rem; }
-.ex-level-badge { font-size:0.62rem; font-weight:700; padding:2px 8px; border-radius:20px; letter-spacing:1px; text-transform:uppercase; }
-.ex-progress { display:flex; gap:5px; margin-bottom:1rem; }
-.prog-dot { height:5px; border-radius:3px; background:var(--border); flex:1; }
-.prog-dot.done { background:var(--raro); }
-.prog-dot.current { background:var(--accent); }
-.ex-sentence { font-size:1rem; font-weight:600; line-height:1.7; margin-bottom:1.1rem; background:var(--bg2); padding:0.9rem 1.1rem; border-radius:11px; border-left:3px solid var(--accent); }
+.back-btn-ex{background:none;border:1px solid var(--border);color:var(--text2);border-radius:8px;padding:5px 13px;font-family:'Nunito',sans-serif;font-size:.76rem;cursor:pointer;margin-bottom:1rem;transition:all .15s;}
+.back-btn-ex:hover{border-color:var(--accent);color:var(--accent);}
+.exercise-box{background:var(--card);border:1.5px solid var(--border);border-radius:18px;padding:1.2rem;margin-bottom:1.2rem;}
+.ex-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:.9rem;}
+.ex-mode{font-family:'Lilita One',cursive;font-size:.85rem;color:var(--accent);}
+.ex-right{display:flex;align-items:center;gap:8px;}
+.ex-avatar{font-size:1.4rem;}
+.ex-level-badge{font-size:.62rem;font-weight:700;padding:2px 8px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;}
+.ex-progress{display:flex;gap:5px;margin-bottom:.8rem;}
+.prog-dot{height:5px;border-radius:3px;background:var(--border);flex:1;}
+.prog-dot.done{background:var(--raro);}
+.prog-dot.current{background:var(--accent);}
+.ex-subtitle{font-size:.72rem;color:var(--text2);margin-bottom:.9rem;font-style:italic;}
+.ex-sentence{font-size:1rem;font-weight:600;line-height:1.7;margin-bottom:1.1rem;background:var(--bg2);padding:.9rem 1.1rem;border-radius:11px;border-left:3px solid var(--accent);}
 
-/* props clickable (sezione 2) */
-.props-container { margin-bottom:1.1rem; display:flex; flex-direction:column; gap:8px; }
-.prop-btn { background:var(--bg2); border:1.5px solid var(--border); border-radius:10px; padding:0.65rem 0.9rem; text-align:left; cursor:pointer; font-family:'Nunito',sans-serif; font-size:0.9rem; font-weight:600; color:var(--text); transition:all .15s; display:flex; align-items:baseline; gap:8px; }
-.prop-btn:hover { border-color:var(--accent); background:rgba(0,212,255,0.06); }
-.prop-btn.correct { border-color:var(--raro); background:rgba(74,222,128,0.1); color:var(--raro); }
-.prop-btn.wrong { border-color:var(--red); background:rgba(239,68,68,0.08); color:var(--red); }
-.prop-num { font-size:0.72rem; color:var(--text2); min-width:18px; }
+.props-container{margin-bottom:1.1rem;display:flex;flex-direction:column;gap:8px;}
+.prop-btn{background:var(--bg2);border:1.5px solid var(--border);border-radius:10px;padding:.65rem .9rem;text-align:left;cursor:pointer;font-family:'Nunito',sans-serif;font-size:.9rem;font-weight:600;color:var(--text);transition:all .15s;display:flex;align-items:baseline;gap:8px;}
+.prop-btn:hover:not(:disabled){border-color:var(--accent);background:rgba(0,212,255,.06);}
+.prop-btn.correct{border-color:var(--raro);background:rgba(74,222,128,.1);color:var(--raro);}
+.prop-btn.wrong{border-color:var(--red);background:rgba(239,68,68,.08);color:var(--red);}
+.prop-num{font-size:.72rem;color:var(--text2);min-width:18px;}
 
-.feedback-box { display:none; border-radius:9px; padding:0.65rem 0.9rem; font-size:0.78rem; line-height:1.5; margin-bottom:0.8rem; border:1px solid rgba(239,68,68,0.3); background:rgba(239,68,68,0.08); color:#fca5a5; }
-.feedback-box.show { display:block; }
-.feedback-box.ok { background:rgba(74,222,128,0.08); border-color:rgba(74,222,128,0.3); color:#86efac; }
-.answer-btns { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:0.8rem; }
-.ans-btn { padding:0.65rem; border-radius:11px; border:2px solid var(--border); background:var(--bg2); color:var(--text); font-family:'Nunito',sans-serif; font-size:0.86rem; font-weight:700; cursor:pointer; transition:all .15s; }
-.ans-btn:hover { border-color:var(--accent); background:rgba(0,212,255,0.07); }
-.ans-btn.correct { border-color:var(--raro); background:rgba(74,222,128,0.1); color:var(--raro); }
-.ans-btn.wrong { border-color:var(--red); background:rgba(239,68,68,0.08); color:var(--red); }
-.next-btn { width:100%; background:var(--bg3); border:1.5px solid var(--border); color:var(--text); border-radius:11px; padding:0.62rem; font-family:'Lilita One',cursive; font-size:0.88rem; cursor:pointer; transition:all .15s; display:none; }
-.next-btn.show { display:block; }
-.next-btn:hover { border-color:var(--accent); color:var(--accent); }
+.feedback-box{display:none;border-radius:9px;padding:.65rem .9rem;font-size:.78rem;line-height:1.5;margin-bottom:.8rem;border:1px solid rgba(239,68,68,.3);background:rgba(239,68,68,.08);color:#fca5a5;}
+.feedback-box.show{display:block;}
+.feedback-box.ok{background:rgba(74,222,128,.08);border-color:rgba(74,222,128,.3);color:#86efac;}
+.answer-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:.8rem;}
+.ans-btn{padding:.65rem;border-radius:11px;border:2px solid var(--border);background:var(--bg2);color:var(--text);font-family:'Nunito',sans-serif;font-size:.86rem;font-weight:700;cursor:pointer;transition:all .15s;}
+.ans-btn:hover:not(:disabled){border-color:var(--accent);background:rgba(0,212,255,.07);}
+.ans-btn.correct{border-color:var(--raro);background:rgba(74,222,128,.1);color:var(--raro);}
+.ans-btn.wrong{border-color:var(--red);background:rgba(239,68,68,.08);color:var(--red);}
+.multi-btns{display:flex;flex-direction:column;gap:8px;margin-bottom:.8rem;}
+.multi-btn{padding:.65rem .9rem;border-radius:11px;border:1.5px solid var(--border);background:var(--bg2);color:var(--text);font-family:'Nunito',sans-serif;font-size:.86rem;font-weight:600;cursor:pointer;transition:all .15s;text-align:left;}
+.multi-btn:hover:not(:disabled){border-color:var(--accent);background:rgba(0,212,255,.07);}
+.multi-btn.correct{border-color:var(--raro);background:rgba(74,222,128,.1);color:var(--raro);}
+.multi-btn.wrong{border-color:var(--red);background:rgba(239,68,68,.08);color:var(--red);}
+.next-btn{width:100%;background:var(--bg3);border:1.5px solid var(--border);color:var(--text);border-radius:11px;padding:.62rem;font-family:'Lilita One',cursive;font-size:.88rem;cursor:pointer;transition:all .15s;display:none;}
+.next-btn.show{display:block;}
+.next-btn:hover{border-color:var(--accent);color:var(--accent);}
 
 /* SCORE */
-.score-screen { display:none; text-align:center; padding:0.5rem 0; }
-.score-screen.show { display:block; }
-.score-avatar { font-size:2.8rem; margin-bottom:0.3rem; }
-.score-big { font-family:'Lilita One',cursive; font-size:3rem; margin-bottom:0.2rem; }
-.score-big.star { color:var(--leggendario); text-shadow:0 0 30px rgba(251,191,36,0.5); }
-.score-big.win { color:var(--blue); }
-.score-big.lose { color:var(--red); }
-.score-label { font-family:'Lilita One',cursive; font-size:1.15rem; margin-bottom:0.3rem; letter-spacing:2px; }
-.score-sub { font-size:0.8rem; color:var(--text2); margin-bottom:0.3rem; }
-.title-unlocked { font-size:0.78rem; color:var(--leggendario); margin-bottom:1rem; font-weight:700; }
-.score-btns { display:flex; gap:8px; justify-content:center; }
-.replay-btn { background:var(--accent); color:#0a1628; border:none; border-radius:11px; padding:0.6rem 1.6rem; font-family:'Lilita One',cursive; font-size:0.9rem; cursor:pointer; transition:all .2s; }
-.replay-btn:hover { transform:scale(1.04); box-shadow:0 0 20px rgba(0,212,255,0.3); }
-.home-btn { background:var(--bg3); color:var(--text2); border:1px solid var(--border); border-radius:11px; padding:0.6rem 1.2rem; font-family:'Lilita One',cursive; font-size:0.9rem; cursor:pointer; transition:all .2s; }
-.home-btn:hover { border-color:var(--accent); color:var(--accent); }
+.score-screen{display:none;text-align:center;padding:.5rem 0;}
+.score-screen.show{display:block;}
+.score-avatar{font-size:2.8rem;margin-bottom:.3rem;}
+.score-big{font-family:'Lilita One',cursive;font-size:3rem;margin-bottom:.2rem;}
+.score-big.star{color:var(--leggendario);text-shadow:0 0 30px rgba(251,191,36,.5);}
+.score-big.win{color:var(--blue);}
+.score-big.lose{color:var(--red);}
+.score-label{font-family:'Lilita One',cursive;font-size:1.15rem;margin-bottom:.3rem;letter-spacing:2px;}
+.score-sub{font-size:.8rem;color:var(--text2);margin-bottom:.3rem;}
+.title-unlocked{font-size:.78rem;color:var(--leggendario);margin-bottom:1rem;font-weight:700;}
+.score-btns{display:flex;gap:8px;justify-content:center;}
+.replay-btn{background:var(--accent);color:#0a1628;border:none;border-radius:11px;padding:.6rem 1.6rem;font-family:'Lilita One',cursive;font-size:.9rem;cursor:pointer;transition:all .2s;}
+.replay-btn:hover{transform:scale(1.04);box-shadow:0 0 20px rgba(0,212,255,.3);}
+.home-btn-score{background:var(--bg3);color:var(--text2);border:1px solid var(--border);border-radius:11px;padding:.6rem 1.2rem;font-family:'Lilita One',cursive;font-size:.9rem;cursor:pointer;transition:all .2s;}
+.home-btn-score:hover{border-color:var(--accent);color:var(--accent);}
 
-.footer { text-align:center; font-size:0.58rem; color:var(--text2); opacity:0.4; padding:1.5rem 1rem 1rem; border-top:1px solid var(--border); margin-top:0.5rem; }
+.footer{text-align:center;font-size:.58rem;color:var(--text2);opacity:.4;padding:1.5rem 1rem 1rem;border-top:1px solid var(--border);margin-top:.5rem;}
 </style>
 </head>
 <body>
@@ -154,9 +158,12 @@ body { font-family: 'Nunito', sans-serif; background: var(--bg); color: var(--te
     <div class="logo">Brawl<span>Grammar</span></div>
     <div class="tagline">Analisi del periodo — allenati ogni giorno</div>
   </div>
-  <div id="avatar-chip" class="avatar-chip" onclick="goChoose()" style="display:none">
-    <span class="avatar-em" id="hdr-em"></span>
-    <span class="avatar-name" id="hdr-name"></span>
+  <div class="header-right">
+    <button class="home-icon-btn" id="home-btn" onclick="goHome()" style="display:none">🏠</button>
+    <div id="avatar-chip" class="avatar-chip" onclick="goChoose()" style="display:none">
+      <span class="avatar-em" id="hdr-em"></span>
+      <span class="avatar-name" id="hdr-name"></span>
+    </div>
   </div>
 </div>
 
@@ -196,7 +203,7 @@ body { font-family: 'Nunito', sans-serif; background: var(--bg); color: var(--te
 
   <!-- EXERCISE -->
   <div class="screen" id="screen-exercise">
-    <button class="back-btn" onclick="goLevels()">← Cambia livello</button>
+    <button class="back-btn-ex" id="back-btn-ex" onclick="goLevels()">← Cambia livello</button>
     <div class="exercise-box">
       <div class="ex-header">
         <div class="ex-mode" id="ex-mode-label"></div>
@@ -208,8 +215,10 @@ body { font-family: 'Nunito', sans-serif; background: var(--bg); color: var(--te
       <div class="ex-progress" id="progress-dots">
         <div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div>
       </div>
+      <div class="ex-subtitle" id="ex-subtitle"></div>
       <div class="ex-sentence" id="ex-sentence" style="display:none"></div>
       <div class="props-container" id="props-container" style="display:none"></div>
+      <div class="multi-btns" id="multi-btns" style="display:none"></div>
       <div id="feedback-area" class="feedback-box"></div>
       <div class="answer-btns" id="ans-area" style="display:none">
         <button class="ans-btn" id="btn-a" onclick="answer('S')">Semplice</button>
@@ -223,7 +232,7 @@ body { font-family: 'Nunito', sans-serif; background: var(--bg); color: var(--te
         <div class="score-sub" id="score-sub"></div>
         <div class="title-unlocked" id="title-unlocked"></div>
         <div class="score-btns">
-          <button class="home-btn" onclick="goHome()">← Mappa</button>
+          <button class="home-btn-score" onclick="goHome()">← Mappa</button>
           <button class="replay-btn" onclick="startBattery()">Rigioca</button>
         </div>
       </div>
@@ -237,382 +246,368 @@ body { font-family: 'Nunito', sans-serif; background: var(--bg); color: var(--te
 </div>
 
 <script>
-// ── CONFIGURAZIONE SEZIONI ────────────────────────────────────────────────────
 const SEZIONI = [
-  { id:1, nome:'Ricercati',     icon:'🎯', colore:'#00d4ff', sub:'Frase semplice o complessa?', file:'data/sezione1_semplice_complessa.json', attiva:true,  meccanica:'binaria', maestria:'Minaccia invisibile' },
-  { id:2, nome:'Arraffagemme', icon:'💎', colore:'#f97316', sub:'Trova la proposizione principale', file:'data/sezione2_arraffagemme.json', attiva:true, meccanica:'props',   maestria:'Senza parole' },
-  { id:3, nome:'Footbrawl',    icon:'⚽', colore:'#4ade80', sub:'Coordinate: tipi e connettivi',  file:null, attiva:false, meccanica:'multipla', maestria:'Il primo' },
-  { id:4, nome:'Dominio',      icon:'🏰', colore:'#a855f7', sub:'Subordinate: tipi e connettivi', file:null, attiva:false, meccanica:'multipla', maestria:'Creatura della notte' },
-  { id:5, nome:'Sopravvivenza',icon:'💀', colore:'#ef4444', sub:'Analisi completa del periodo',   file:null, attiva:false, meccanica:'etichetta', maestria:'Capobanda' },
-  { id:6, nome:'Map Maker',    icon:'🗺️', colore:'#fbbf24', sub:'Costruisci il periodo',          file:null, attiva:false, meccanica:'multipla', maestria:'Migliore amico' },
+  { id:1, nome:'Ricercati',    icon:'🎯', colore:'#00d4ff', sub:'Frase semplice o complessa?',       file:'data/sezione1_ricercati.json',    attiva:true,  meccanica:'binaria',  maestria:'Minaccia invisibile' },
+  { id:2, nome:'Arraffagemme',icon:'💎', colore:'#f97316', sub:'Trova la proposizione principale',   file:'data/sezione2_arraffagemme.json', attiva:true,  meccanica:'props',    maestria:'Senza parole' },
+  { id:3, nome:'Footbrawl',   icon:'⚽', colore:'#4ade80', sub:'Coordinate: tipi e connettivi',      file:'data/sezione3_footbrawl.json',    attiva:true,  meccanica:'multipla', maestria:'Il primo' },
+  { id:4, nome:'Dominio',     icon:'🏰', colore:'#a855f7', sub:'Subordinate: tipi e connettivi',     file:null,                              attiva:false, meccanica:'multipla', maestria:'Creatura della notte' },
+  { id:5, nome:'Sopravvivenza',icon:'💀',colore:'#ef4444', sub:'Analisi completa del periodo',        file:null,                              attiva:false, meccanica:'etichetta',maestria:'Capobanda' },
+  { id:6, nome:'Map Maker',   icon:'🗺️', colore:'#fbbf24', sub:'Costruisci il periodo',              file:null,                              attiva:false, meccanica:'multipla', maestria:'Migliore amico' },
 ];
 
 const BRAWLERS = [
-  { id:'leon',   em:'🦁', name:'Leon',     title:'Minaccia invisibile' },
-  { id:'spike',  em:'🌵', name:'Spike',    title:'Senza parole' },
-  { id:'primo',  em:'🥊', name:'El Primo', title:'Il primo' },
-  { id:'mortis', em:'💀', name:'Mortis',   title:'Creatura della notte' },
-  { id:'crow',   em:'🦅', name:'Crow',     title:'Capobanda' },
-  { id:'kit',    em:'🐱', name:'Kit',      title:'Migliore amico' },
+  { id:'leon',  em:'🦁', name:'Leon',    title:'Minaccia invisibile' },
+  { id:'spike', em:'🌵', name:'Spike',   title:'Senza parole' },
+  { id:'primo', em:'🥊', name:'El Primo',title:'Il primo' },
+  { id:'mortis',em:'💀', name:'Mortis',  title:'Creatura della notte' },
+  { id:'crow',  em:'🦅', name:'Crow',    title:'Capobanda' },
+  { id:'kit',   em:'🐱', name:'Kit',     title:'Migliore amico' },
 ];
 
-// ── STATO ─────────────────────────────────────────────────────────────────────
 let brawler = null;
-let corpora = {};        // { sezioneId: datiJSON }
+let corpora = {};
 let currentSezione = null;
 let currentLivello = null;
-let currentQueue = [];   // 5 domande estratte
+let currentQueue = [];
 let currentIdx = 0;
 let currentScore = 0;
 let answered = false;
 
-// ── LOCALSTORAGE ──────────────────────────────────────────────────────────────
-function lsGet(k) { try { return JSON.parse(localStorage.getItem('bg_'+k)); } catch(e) { return null; } }
-function lsSet(k,v) { try { localStorage.setItem('bg_'+k, JSON.stringify(v)); } catch(e) {} }
+function lsGet(k){try{return JSON.parse(localStorage.getItem('bg_'+k));}catch(e){return null;}}
+function lsSet(k,v){try{localStorage.setItem('bg_'+k,JSON.stringify(v));}catch(e){}}
 
-function getProgress(sezId, livello) {
-  const p = lsGet('progress') || {};
-  return (p[sezId] && p[sezId][livello]) || { done: false, star: false };
+function getProgress(sezId,liv){const p=lsGet('progress')||{};return(p[sezId]&&p[sezId][liv])||{done:false,star:false};}
+function setProgress(sezId,liv,done,star){const p=lsGet('progress')||{};if(!p[sezId])p[sezId]={};p[sezId][liv]={done,star};lsSet('progress',p);}
+
+function hasMaestria(sezId){
+  const sez=SEZIONI.find(s=>s.id===sezId);
+  if(!sez||!corpora[sezId])return false;
+  const livelli=corpora[sezId].livelli;
+  const lastLiv=livelli[livelli.length-1].livello;
+  return getProgress(sezId,lastLiv).star;
 }
-function setProgress(sezId, livello, done, star) {
-  const p = lsGet('progress') || {};
-  if (!p[sezId]) p[sezId] = {};
-  p[sezId][livello] = { done, star };
-  lsSet('progress', p);
-}
-function hasMaestria(sezId) {
-  const sez = SEZIONI.find(s=>s.id===sezId);
-  if (!sez || !corpora[sezId]) return false;
-  const livelli = corpora[sezId].livelli;
-  const lastLiv = livelli[livelli.length-1].livello;
-  return getProgress(sezId, lastLiv).star;
-}
-function getMaestriaList() {
-  return SEZIONI.filter(s => hasMaestria(s.id)).map(s => s.maestria);
+function getMaestriaList(){return SEZIONI.filter(s=>hasMaestria(s.id)).map(s=>s.maestria);}
+
+async function loadCorpus(sez){
+  if(corpora[sez.id])return true;
+  if(!sez.file)return false;
+  try{const r=await fetch(sez.file);if(!r.ok)return false;corpora[sez.id]=await r.json();return true;}
+  catch(e){return false;}
 }
 
-// ── CARICAMENTO JSON ──────────────────────────────────────────────────────────
-async function loadCorpus(sez) {
-  if (corpora[sez.id]) return true;
-  if (!sez.file) return false;
-  try {
-    const r = await fetch(sez.file);
-    if (!r.ok) return false;
-    corpora[sez.id] = await r.json();
-    return true;
-  } catch(e) { return false; }
-}
-
-// ── INIT ──────────────────────────────────────────────────────────────────────
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded',()=>{
   buildBrawlerGrid();
-  const saved = lsGet('brawler');
-  if (saved) {
-    brawler = BRAWLERS.find(b=>b.id===saved) || null;
-    if (brawler) {
-      confirmBrawler(true);
-    }
+  const saved=lsGet('brawler');
+  if(saved){
+    brawler=BRAWLERS.find(b=>b.id===saved)||null;
+    if(brawler){updateAvatarUI();show('screen-home');buildModesGrid();buildTitles();}
   }
 });
 
-// ── BRAWLER ───────────────────────────────────────────────────────────────────
-function buildBrawlerGrid() {
-  const grid = document.getElementById('brawlers-grid');
-  BRAWLERS.forEach(b => {
-    const card = document.createElement('div');
-    card.className = 'brawler-card';
-    card.innerHTML = `<div class="brawler-em">${b.em}</div><div class="brawler-name">${b.name}</div><div class="brawler-title">${b.title}</div>`;
-    card.onclick = () => {
+function buildBrawlerGrid(){
+  const grid=document.getElementById('brawlers-grid');
+  grid.innerHTML='';
+  // reset selezione
+  brawler=null;
+  document.getElementById('confirm-btn').classList.remove('ready');
+  BRAWLERS.forEach(b=>{
+    const card=document.createElement('div');
+    card.className='brawler-card';
+    card.dataset.id=b.id;
+    card.innerHTML=`<div class="brawler-em">${b.em}</div><div class="brawler-name">${b.name}</div><div class="brawler-title">${b.title}</div>`;
+    card.onclick=()=>{
       document.querySelectorAll('.brawler-card').forEach(c=>c.classList.remove('selected'));
       card.classList.add('selected');
-      brawler = b;
+      brawler=b;
       document.getElementById('confirm-btn').classList.add('ready');
     };
+    // se era già selezionato, riselezionalo
+    const saved=lsGet('brawler');
+    if(saved&&b.id===saved){card.classList.add('selected');brawler=b;document.getElementById('confirm-btn').classList.add('ready');}
     grid.appendChild(card);
   });
 }
 
-function confirmBrawler(silent=false) {
-  if (!brawler) return;
-  lsSet('brawler', brawler.id);
+function confirmBrawler(){
+  if(!brawler)return;
+  lsSet('brawler',brawler.id);
   updateAvatarUI();
-  if (!silent) goHome();
-  else {
-    document.getElementById('screen-choose').classList.remove('active');
-    goHome();
-  }
+  goHome();
 }
 
-function updateAvatarUI() {
-  document.getElementById('hdr-em').textContent = brawler.em;
-  document.getElementById('hdr-name').textContent = brawler.name;
-  document.getElementById('home-avatar').textContent = brawler.em;
-  document.getElementById('home-brawler-name').textContent = brawler.name;
-  document.getElementById('ex-avatar').textContent = brawler.em;
-  document.getElementById('score-avatar').textContent = brawler.em;
-  document.getElementById('avatar-chip').style.display = 'flex';
+function updateAvatarUI(){
+  if(!brawler)return;
+  document.getElementById('hdr-em').textContent=brawler.em;
+  document.getElementById('hdr-name').textContent=brawler.name;
+  document.getElementById('home-avatar').textContent=brawler.em;
+  document.getElementById('home-brawler-name').textContent=brawler.name;
+  document.getElementById('ex-avatar').textContent=brawler.em;
+  document.getElementById('score-avatar').textContent=brawler.em;
+  document.getElementById('avatar-chip').style.display='flex';
+  document.getElementById('home-btn').style.display='block';
 }
 
-// ── NAVIGAZIONE ───────────────────────────────────────────────────────────────
-function goChoose() { show('screen-choose'); }
-
-function goHome() {
-  buildModesGrid();
-  buildTitles();
-  show('screen-home');
-}
-
-function goLevels() { show('screen-levels'); }
-
-function show(id) {
+function show(id){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   window.scrollTo(0,0);
 }
 
-// ── HOME ──────────────────────────────────────────────────────────────────────
-function buildModesGrid() {
-  const grid = document.getElementById('modes-grid');
-  grid.innerHTML = '';
-  SEZIONI.forEach(sez => {
-    const card = document.createElement('div');
-    card.className = 'mode-card' + (!sez.attiva ? ' locked' : '');
-    card.style.setProperty('--mc', sez.colore);
-    const livelliBadge = sez.file ? buildLevelPills(sez) : '<span class="lvl-pill lvl-lock">Prossimamente</span>';
-    card.innerHTML = `
-      ${sez.attiva ? `<div class="mode-badge">Attivo</div>` : `<div class="lock-icon">🔒</div>`}
+function goChoose(){buildBrawlerGrid();show('screen-choose');}
+
+function goHome(){
+  buildModesGrid();
+  buildTitles();
+  show('screen-home');
+}
+
+function goLevels(){buildLevelsScreen();show('screen-levels');}
+
+function buildModesGrid(){
+  const grid=document.getElementById('modes-grid');
+  grid.innerHTML='';
+  SEZIONI.forEach(sez=>{
+    const card=document.createElement('div');
+    card.className='mode-card'+((!sez.attiva)?' locked':'');
+    card.style.setProperty('--mc',sez.colore);
+    const livPills=sez.file&&corpora[sez.id]?buildLevelPills(sez):'<span class="lvl-pill lvl-lock">Prossimamente</span>';
+    card.innerHTML=`
+      ${sez.attiva?`<div class="mode-badge">Attivo</div>`:`<div class="lock-icon">🔒</div>`}
       <div class="mode-icon">${sez.icon}</div>
       <div class="mode-name">${sez.nome}</div>
       <div class="mode-sub">${sez.sub}</div>
-      <div class="levels-row">${livelliBadge}</div>
+      <div class="levels-row">${livPills}</div>
     `;
-    if (sez.attiva) card.onclick = () => openSezione(sez);
+    if(sez.attiva)card.onclick=()=>openSezione(sez);
     grid.appendChild(card);
   });
 }
 
-function buildLevelPills(sez) {
-  if (!corpora[sez.id]) return '<span class="lvl-pill lvl-lock">Caricamento...</span>';
-  return corpora[sez.id].livelli.map(l => {
-    const prog = getProgress(sez.id, l.livello);
-    const cls = prog.done ? 'lvl-done' : ('lvl-'+l.nome.toLowerCase().replace(' ',''));
-    const check = prog.done ? ' ✓' : '';
-    return `<span class="lvl-pill ${cls}">${l.nome}${check}</span>`;
+function buildLevelPills(sez){
+  if(!corpora[sez.id])return'<span class="lvl-pill lvl-lock">…</span>';
+  return corpora[sez.id].livelli.map(l=>{
+    const prog=getProgress(sez.id,l.livello);
+    const nomeSafe=l.nome.replace(' ','');
+    const cls=prog.done?'lvl-done':('lvl-'+nomeSafe);
+    return`<span class="lvl-pill ${cls}">${l.nome}${prog.done?' ✓':''}</span>`;
   }).join('');
 }
 
-function buildTitles() {
-  const list = getMaestriaList();
-  const row = document.getElementById('titles-row');
-  row.innerHTML = list.length ? list.map(t=>`<span class="title-badge">★ ${t}</span>`).join('') : '<span style="font-size:.68rem;color:var(--text2)">Nessun titolo ancora — allenati!</span>';
+function buildTitles(){
+  const list=getMaestriaList();
+  const row=document.getElementById('titles-row');
+  row.innerHTML=list.length?list.map(t=>`<span class="title-badge">★ ${t}</span>`).join(''):'<span style="font-size:.68rem;color:var(--text2)">Nessun titolo ancora — allenati!</span>';
 }
 
-// ── SEZIONE ───────────────────────────────────────────────────────────────────
-async function openSezione(sez) {
-  currentSezione = sez;
-  const ok = await loadCorpus(sez);
-  if (!ok) { alert('Errore nel caricamento della sezione.'); return; }
+async function openSezione(sez){
+  currentSezione=sez;
+  const ok=await loadCorpus(sez);
+  if(!ok){alert('Errore nel caricamento della sezione.');return;}
   buildLevelsScreen();
   show('screen-levels');
 }
 
-function buildLevelsScreen() {
-  const sez = currentSezione;
-  const data = corpora[sez.id];
-  document.getElementById('ls-title').textContent = sez.icon + ' ' + sez.nome;
-  document.getElementById('ls-sub').textContent = sez.sub;
-  const list = document.getElementById('levels-list');
-  list.innerHTML = '';
-  data.livelli.forEach((l, idx) => {
-    const prog = getProgress(sez.id, l.livello);
-    const prevDone = idx === 0 || getProgress(sez.id, data.livelli[idx-1].livello).done;
-    const locked = !prevDone;
-    const colorMap = { 'Raro':'var(--raro)', 'Super Raro':'var(--superraro)', 'Epico':'var(--epico)', 'Leggendario':'var(--leggendario)' };
-    const lc = colorMap[l.nome] || 'var(--accent)';
-    const row = document.createElement('div');
-    row.className = 'level-row' + (locked?' locked':'') + (prog.done?' done':'');
-    row.style.setProperty('--lc', lc);
-    row.innerHTML = `
+function buildLevelsScreen(){
+  const sez=currentSezione;
+  const data=corpora[sez.id];
+  document.getElementById('ls-title').textContent=sez.icon+' '+sez.nome;
+  document.getElementById('ls-sub').textContent=sez.sub;
+  const list=document.getElementById('levels-list');
+  list.innerHTML='';
+  const colorMap={'Raro':'var(--raro)','Super Raro':'var(--superraro)','Epico':'var(--epico)','Leggendario':'var(--leggendario)'};
+  data.livelli.forEach((l,idx)=>{
+    const prog=getProgress(sez.id,l.livello);
+    const prevDone=idx===0||getProgress(sez.id,data.livelli[idx-1].livello).done;
+    const locked=!prevDone;
+    const lc=colorMap[l.nome]||'var(--accent)';
+    const row=document.createElement('div');
+    row.className='level-row'+(locked?' locked':'')+(prog.done?' done':'');
+    row.style.setProperty('--lc',lc);
+    const desc=(l.descrizione||'').substring(0,65)+'…';
+    row.innerHTML=`
       <div class="level-row-left">
         <div class="level-dot"></div>
         <div>
           <div class="level-row-name" style="color:${lc}">${l.nome}</div>
-          <div class="level-row-desc">${l.descrizione ? l.descrizione.substring(0,60)+'…' : ''}</div>
+          <div class="level-row-desc">${desc}</div>
         </div>
       </div>
-      <div class="level-row-right">${locked ? '🔒' : prog.star ? '★ Star' : prog.done ? '✓ Fatto' : 'Gioca →'}</div>
+      <div class="level-row-right">${locked?'🔒':prog.star?'★ Star':prog.done?'✓ Fatto':'Gioca →'}</div>
     `;
-    if (!locked) row.onclick = () => startLevel(l);
+    if(!locked)row.onclick=()=>startLevel(l);
     list.appendChild(row);
   });
 }
 
-// ── ESERCIZIO ─────────────────────────────────────────────────────────────────
-function startLevel(livello) {
-  currentLivello = livello;
-  const colorMap = { 'Raro':'rgba(74,222,128,0.15)', 'Super Raro':'rgba(56,189,248,0.15)', 'Epico':'rgba(168,85,247,0.15)', 'Leggendario':'rgba(251,191,36,0.15)' };
-  const textMap  = { 'Raro':'var(--raro)', 'Super Raro':'var(--superraro)', 'Epico':'var(--epico)', 'Leggendario':'var(--leggendario)' };
-  const badge = document.getElementById('ex-level-badge');
-  badge.textContent = livello.nome;
-  badge.style.background = colorMap[livello.nome] || 'rgba(0,212,255,0.15)';
-  badge.style.color = textMap[livello.nome] || 'var(--accent)';
-  document.getElementById('ex-mode-label').textContent = currentSezione.icon + ' ' + currentSezione.nome;
+function startLevel(livello){
+  currentLivello=livello;
+  const colorMap={'Raro':'rgba(74,222,128,.15)','Super Raro':'rgba(56,189,248,.15)','Epico':'rgba(168,85,247,.15)','Leggendario':'rgba(251,191,36,.15)'};
+  const textMap={'Raro':'var(--raro)','Super Raro':'var(--superraro)','Epico':'var(--epico)','Leggendario':'var(--leggendario)'};
+  const badge=document.getElementById('ex-level-badge');
+  badge.textContent=livello.nome;
+  badge.style.background=colorMap[livello.nome]||'rgba(0,212,255,.15)';
+  badge.style.color=textMap[livello.nome]||'var(--accent)';
+  document.getElementById('ex-mode-label').textContent=currentSezione.icon+' '+currentSezione.nome;
+  // sottotitolo per sezione 2
+  const sub=document.getElementById('ex-subtitle');
+  if(currentSezione.meccanica==='props'){sub.textContent='👆 Tocca la proposizione principale';sub.style.display='block';}
+  else{sub.style.display='none';}
   show('screen-exercise');
   startBattery();
 }
 
-function startBattery() {
-  const items = currentLivello.frasi || currentLivello.periodi || [];
-  const shuffled = [...items].sort(()=>Math.random()-0.5);
-  currentQueue = shuffled.slice(0,5);
-  currentIdx = 0;
-  currentScore = 0;
-  answered = false;
+function startBattery(){
+  const items=currentLivello.frasi||currentLivello.periodi||currentLivello.esercizi||[];
+  const shuffled=[...items].sort(()=>Math.random()-.5);
+  currentQueue=shuffled.slice(0,5);
+  currentIdx=0;currentScore=0;answered=false;
   document.getElementById('score-screen').classList.remove('show');
   document.getElementById('next-btn').classList.remove('show');
   showQuestion();
 }
 
-function showQuestion() {
-  answered = false;
-  const q = currentQueue[currentIdx];
-  const mec = currentSezione.meccanica;
+function hideAllInputs(){
+  document.getElementById('ex-sentence').style.display='none';
+  document.getElementById('props-container').style.display='none';
+  document.getElementById('multi-btns').style.display='none';
+  document.getElementById('ans-area').style.display='none';
+}
 
-  document.getElementById('feedback-area').className = 'feedback-box';
-  document.getElementById('feedback-area').textContent = '';
+function showQuestion(){
+  answered=false;
+  const q=currentQueue[currentIdx];
+  const mec=currentSezione.meccanica;
+  document.getElementById('feedback-area').className='feedback-box';
+  document.getElementById('feedback-area').textContent='';
   document.getElementById('next-btn').classList.remove('show');
   document.getElementById('score-screen').classList.remove('show');
   updateDots();
+  hideAllInputs();
 
-  if (mec === 'binaria') {
-    document.getElementById('ex-sentence').style.display = 'block';
-    document.getElementById('ex-sentence').textContent = q.testo;
-    document.getElementById('props-container').style.display = 'none';
-    document.getElementById('ans-area').style.display = 'grid';
-    document.getElementById('btn-a').textContent = 'Semplice';
-    document.getElementById('btn-a').className = 'ans-btn';
-    document.getElementById('btn-a').onclick = () => answer('S');
-    document.getElementById('btn-b').textContent = 'Complessa';
-    document.getElementById('btn-b').className = 'ans-btn';
-    document.getElementById('btn-b').onclick = () => answer('C');
-  } else if (mec === 'props') {
-    document.getElementById('ex-sentence').style.display = 'none';
-    document.getElementById('ans-area').style.display = 'none';
-    const container = document.getElementById('props-container');
-    container.style.display = 'flex';
-    container.innerHTML = q.props.map((p,i) => `
+  if(mec==='binaria'){
+    const sent=document.getElementById('ex-sentence');
+    sent.style.display='block';
+    sent.textContent=q.testo;
+    const area=document.getElementById('ans-area');
+    area.style.display='grid';
+    document.getElementById('btn-a').textContent='Semplice';
+    document.getElementById('btn-a').className='ans-btn';
+    document.getElementById('btn-a').disabled=false;
+    document.getElementById('btn-a').onclick=()=>answer('S');
+    document.getElementById('btn-b').textContent='Complessa';
+    document.getElementById('btn-b').className='ans-btn';
+    document.getElementById('btn-b').disabled=false;
+    document.getElementById('btn-b').onclick=()=>answer('C');
+  } else if(mec==='props'){
+    const container=document.getElementById('props-container');
+    container.style.display='flex';
+    container.innerHTML=q.props.map((p,i)=>`
       <button class="prop-btn" id="prop-${i}" onclick="answerProp(${i})">
         <span class="prop-num">[${i+1}]</span>${p}
+      </button>
+    `).join('');
+  } else if(mec==='multipla'){
+    const sent=document.getElementById('ex-sentence');
+    sent.style.display='block';
+    // evidenzia connettivo o testo con __...__
+    sent.innerHTML=q.testo.replace(/__(.+?)__/g,'<strong style="color:var(--accent)">$1</strong>');
+    const mb=document.getElementById('multi-btns');
+    mb.style.display='flex';
+    const opzioni=q.opzioni||q.opts||[];
+    mb.innerHTML=opzioni.map((o,i)=>`
+      <button class="multi-btn" id="mopt-${i}" onclick="answerMulti('${o.replace(/'/g,"\\'")}')">
+        ${o}
       </button>
     `).join('');
   }
 }
 
-function answer(choice) {
-  if (answered) return;
-  answered = true;
-  const q = currentQueue[currentIdx];
-  const correct = choice === q.tipo;
-  const fb = document.getElementById('feedback-area');
-  const btnA = document.getElementById('btn-a');
-  const btnB = document.getElementById('btn-b');
-  if (correct) {
-    currentScore++;
-    fb.className = 'feedback-box ok show';
-    fb.textContent = '✓ Esatto! ' + q.spiegazione;
-    (choice==='S' ? btnA : btnB).classList.add('correct');
-  } else {
-    fb.className = 'feedback-box show';
-    fb.textContent = '✗ Non proprio. ' + q.spiegazione;
-    (choice==='S' ? btnA : btnB).classList.add('wrong');
-    (q.tipo==='S' ? btnA : btnB).classList.add('correct');
-  }
+function answer(choice){
+  if(answered)return;answered=true;
+  const q=currentQueue[currentIdx];
+  const correct=choice===q.tipo;
+  const fb=document.getElementById('feedback-area');
+  const btnA=document.getElementById('btn-a');
+  const btnB=document.getElementById('btn-b');
+  btnA.disabled=true;btnB.disabled=true;
+  if(correct){currentScore++;fb.className='feedback-box ok show';fb.textContent='✓ Esatto! '+q.spiegazione;(choice==='S'?btnA:btnB).classList.add('correct');}
+  else{fb.className='feedback-box show';fb.textContent='✗ Non proprio. '+q.spiegazione;(choice==='S'?btnA:btnB).classList.add('wrong');(q.tipo==='S'?btnA:btnB).classList.add('correct');}
   afterAnswer();
 }
 
-function answerProp(idx) {
-  if (answered) return;
-  answered = true;
-  const q = currentQueue[currentIdx];
-  const correct = idx === q.principale;
-  const fb = document.getElementById('feedback-area');
-  q.props.forEach((_,i) => {
-    const btn = document.getElementById('prop-'+i);
-    if (btn) {
-      if (i === q.principale) btn.classList.add('correct');
-      else if (i === idx && !correct) btn.classList.add('wrong');
+function answerProp(idx){
+  if(answered)return;answered=true;
+  const q=currentQueue[currentIdx];
+  const correct=idx===q.principale;
+  const fb=document.getElementById('feedback-area');
+  q.props.forEach((_,i)=>{
+    const btn=document.getElementById('prop-'+i);
+    if(btn){
+      btn.disabled=true;
+      if(i===q.principale)btn.classList.add('correct');
+      else if(i===idx&&!correct)btn.classList.add('wrong');
     }
   });
-  if (correct) {
-    currentScore++;
-    fb.className = 'feedback-box ok show';
-    fb.textContent = '✓ Esatto! ' + q.spiegazione;
-  } else {
-    fb.className = 'feedback-box show';
-    fb.textContent = '✗ Non proprio. ' + q.spiegazione;
-  }
+  if(correct){currentScore++;fb.className='feedback-box ok show';fb.textContent='✓ Esatto! '+q.spiegazione;}
+  else{fb.className='feedback-box show';fb.textContent='✗ Non proprio. '+q.spiegazione;}
   afterAnswer();
 }
 
-function afterAnswer() {
-  if (currentIdx < currentQueue.length - 1) {
-    document.getElementById('next-btn').classList.add('show');
-  } else {
-    setTimeout(showScore, 700);
+function answerMulti(choice){
+  if(answered)return;answered=true;
+  const q=currentQueue[currentIdx];
+  const risposta=q.risposta||q.risp;
+  const correct=choice===risposta;
+  const fb=document.getElementById('feedback-area');
+  const opzioni=q.opzioni||q.opts||[];
+  opzioni.forEach((o,i)=>{
+    const btn=document.getElementById('mopt-'+i);
+    if(btn){
+      btn.disabled=true;
+      if(o===risposta)btn.classList.add('correct');
+      else if(o===choice&&!correct)btn.classList.add('wrong');
+    }
+  });
+  if(correct){currentScore++;fb.className='feedback-box ok show';fb.textContent='✓ Esatto! '+q.spiegazione;}
+  else{fb.className='feedback-box show';fb.textContent='✗ Non proprio. '+q.spiegazione;}
+  afterAnswer();
+}
+
+function afterAnswer(){
+  if(currentIdx<currentQueue.length-1){document.getElementById('next-btn').classList.add('show');}
+  else{setTimeout(showScore,700);}
+}
+
+function nextQuestion(){currentIdx++;showQuestion();}
+
+function updateDots(){
+  const dots=document.getElementById('progress-dots').children;
+  for(let i=0;i<dots.length;i++){
+    dots[i].className='prog-dot';
+    if(i<currentIdx)dots[i].classList.add('done');
+    else if(i===currentIdx)dots[i].classList.add('current');
   }
 }
 
-function nextQuestion() { currentIdx++; showQuestion(); }
-
-function updateDots() {
-  const dots = document.getElementById('progress-dots').children;
-  for (let i=0; i<dots.length; i++) {
-    dots[i].className = 'prog-dot';
-    if (i < currentIdx) dots[i].classList.add('done');
-    else if (i === currentIdx) dots[i].classList.add('current');
-  }
-}
-
-function showScore() {
-  document.getElementById('ans-area').style.display = 'none';
-  document.getElementById('props-container').style.display = 'none';
-  document.getElementById('ex-sentence').style.display = 'none';
+function showScore(){
+  hideAllInputs();
   document.getElementById('next-btn').classList.remove('show');
-  document.getElementById('feedback-area').className = 'feedback-box';
-
-  const sezId = currentSezione.id;
-  const livNum = currentLivello.livello;
-  const data = corpora[sezId];
-  const isLastLevel = data.livelli[data.livelli.length-1].livello === livNum;
-
-  const won = currentScore >= 4;
-  const star = currentScore === 5;
-
-  if (won) setProgress(sezId, livNum, true, star);
-
-  const sb = document.getElementById('score-big');
-  const sl = document.getElementById('score-label');
-  const ssub = document.getElementById('score-sub');
-  const tu = document.getElementById('title-unlocked');
-
-  sb.textContent = currentScore+'/5';
-  tu.textContent = '';
-
-  if (star) {
-    sb.className = 'score-big star';
-    sl.textContent = '★ STAR PLAYER ★';
-    ssub.textContent = 'Perfetto! Dominio assoluto.';
-    if (isLastLevel) tu.textContent = '🏆 Titolo sbloccato: ' + currentSezione.maestria;
-  } else if (won) {
-    sb.className = 'score-big win';
-    sl.textContent = 'VITTORIA';
-    ssub.textContent = isLastLevel ? 'Livello completato! Fai 5/5 per il titolo.' : 'Livello sbloccato! Vai avanti.';
-  } else {
-    sb.className = 'score-big lose';
-    sl.textContent = 'SCONFITTA';
-    ssub.textContent = 'Ci vuole ancora un po\'. Riprova!';
-  }
-
+  document.getElementById('feedback-area').className='feedback-box';
+  const sezId=currentSezione.id;
+  const livNum=currentLivello.livello;
+  const data=corpora[sezId];
+  const isLastLevel=data.livelli[data.livelli.length-1].livello===livNum;
+  const won=currentScore>=4;
+  const star=currentScore===5;
+  if(won)setProgress(sezId,livNum,true,star);
+  const sb=document.getElementById('score-big');
+  const sl=document.getElementById('score-label');
+  const ssub=document.getElementById('score-sub');
+  const tu=document.getElementById('title-unlocked');
+  sb.textContent=currentScore+'/5';tu.textContent='';
+  if(star){sb.className='score-big star';sl.textContent='★ STAR PLAYER ★';ssub.textContent='Perfetto! Dominio assoluto.';if(isLastLevel)tu.textContent='🏆 Titolo sbloccato: '+currentSezione.maestria;}
+  else if(won){sb.className='score-big win';sl.textContent='VITTORIA';ssub.textContent=isLastLevel?'Livello completato! Fai 5/5 per il titolo.':'Livello sbloccato! Vai avanti.';}
+  else{sb.className='score-big lose';sl.textContent='SCONFITTA';ssub.textContent='Ci vuole ancora un po\'. Riprova!';}
   document.getElementById('score-screen').classList.add('show');
 }
 </script>
