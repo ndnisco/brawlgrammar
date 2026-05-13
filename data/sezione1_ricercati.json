@@ -9,7 +9,7 @@
       "livello": 1,
       "nome": "Raro",
       "colore": "#4ade80",
-      "descrizione": "Struttura ovvia: frase semplice = un solo verbo; frase complessa = due verbi collegati da congiunzione esplicita.",
+      "descrizione": "Leggi ogni frase e indica se è semplice (un solo verbo) o complessa (più verbi). Scegli tra le due opzioni.",
       "frasi": [
         { "id": "1-1-01", "testo": "Marco mangia una pizza.", "tipo": "S", "spiegazione": "C'è un solo verbo (mangia): è una frase semplice." },
         { "id": "1-1-02", "testo": "Luisa studia perché vuole prendere un bel voto.", "tipo": "C", "spiegazione": "Ci sono due verbi (studia, vuole): è una frase complessa." },
@@ -47,7 +47,7 @@
       "livello": 2,
       "nome": "Epico",
       "colore": "#a855f7",
-      "descrizione": "Frasi più lunghe: la frase semplice può avere complementi articolati che sembrano proposizioni ma non lo sono; la complessa include subordinate implicite (participio, infinito, gerundio).",
+      "descrizione": "Alcune frasi sembrano complesse ma non lo sono. Attenzione ai complementi lunghi e alle forme implicite (gerundio, participio, infinito). Scegli: semplice o complessa.",
       "frasi": [
         { "id": "1-2-01", "testo": "Il ragazzo con la giacca rossa aspetta l'autobus sotto la pioggia.", "tipo": "S", "spiegazione": "Nonostante sia lunga, c'è un solo verbo (aspetta): è una frase semplice." },
         { "id": "1-2-02", "testo": "Uscendo di casa, ho dimenticato il telefono.", "tipo": "C", "spiegazione": "Il gerundio 'uscendo' introduce una proposizione implicita: è una frase complessa." },
@@ -85,7 +85,7 @@
       "livello": 3,
       "nome": "Leggendario",
       "colore": "#fbbf24",
-      "descrizione": "Strutture articolate: semplici con apposizioni o participiali, complesse con subordinate integrate. Presenti anche verbi servili e fraseologici come predicato unico.",
+      "descrizione": "Attenzione alle strutture ambigue: apposizioni elaborate e subordinate integrate possono trarre in inganno. Scegli: semplice o complessa.",
       "frasi": [
         { "id": "1-3-01", "testo": "Il risultato, del tutto inaspettato, ha lasciato tutti senza parole.", "tipo": "S", "spiegazione": "'Del tutto inaspettato' è un'apposizione aggettivale semplice. C'è un solo verbo (ha lasciato): frase semplice." },
         { "id": "1-3-02", "testo": "La cosa che mi ha colpito di più è stata la sua calma.", "tipo": "C", "spiegazione": "'Che mi ha colpito' è una relativa: è una frase complessa." },
