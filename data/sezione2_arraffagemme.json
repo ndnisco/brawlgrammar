@@ -9,7 +9,7 @@
       "livello": 1,
       "nome": "Raro",
       "colore": "#4ade80",
-      "descrizione": "2 proposizioni: principale + una dipendente con congiunzione esplicita ovvia.",
+      "descrizione": "Ogni periodo è diviso in proposizioni numerate. Clicca quella che è la proposizione principale.",
       "periodi": [
         { "id": "2-1-01", "props": ["Marco studia ogni sera", "perché vuole passare l'anno."], "principale": 0, "spiegazione": "La prop. 1 è la principale: regge il 'perché' e ha senso da sola." },
         { "id": "2-1-02", "props": ["Quando suona la campanella", "i ragazzi escono tutti insieme."], "principale": 1, "spiegazione": "La prop. 2 è la principale: la temporale 'quando' dipende da essa." },
@@ -47,7 +47,7 @@
       "livello": 2,
       "nome": "Epico",
       "colore": "#a855f7",
-      "descrizione": "3 proposizioni: principale + coordinata e/o subordinata. Possibili subordinate implicite.",
+      "descrizione": "Il periodo ha tre proposizioni, alcune implicite. Individua e clicca la proposizione principale.",
       "periodi": [
         { "id": "2-2-01", "props": ["Quando sono arrivato a casa", "ho mangiato qualcosa", "e poi mi sono addormentato sul divano."], "principale": 1, "spiegazione": "La prop. 2 è la principale: la temporale dipende da essa, e la prop. 3 è una coordinata copulativa." },
         { "id": "2-2-02", "props": ["Sebbene fosse tardi", "siamo rimasti ancora un po'", "perché la conversazione era interessante."], "principale": 1, "spiegazione": "La prop. 2 è la principale: la concessiva (1) e la causale (3) dipendono entrambe da essa." },
@@ -85,7 +85,7 @@
       "livello": 3,
       "nome": "Leggendario",
       "colore": "#fbbf24",
-      "descrizione": "4 proposizioni, struttura complessa. La principale può essere in posizione non iniziale o reggere subordinate di 2° grado.",
+      "descrizione": "Il periodo ha quattro proposizioni. La principale può non essere in prima posizione. Individuala e cliccala.",
       "periodi": [
         { "id": "2-3-01", "props": ["Quando ho saputo", "che la gara era stata annullata", "mi sono dispiaciuto molto", "perché mi ero allenato per settimane."], "principale": 2, "spiegazione": "La prop. 3 è la principale: la temporale (1) e la causale (4) dipendono da essa; la prop. 2 è oggettiva di 'saputo'." },
         { "id": "2-3-02", "props": ["Sebbene avesse studiato poco", "e non si aspettasse nulla di buono", "ha superato l'esame con ottimi voti", "e ha sorpreso tutti."], "principale": 2, "spiegazione": "La prop. 3 è la principale: le props. 1-2 sono concessive coordinate, la prop. 4 è coordinata." },
